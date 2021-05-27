@@ -157,14 +157,14 @@ public class GameHandler : MonoBehaviour
     public void BackToPlayersNum()
     {
         instruction_sc.SetActive(false);
-        round_sc.SetActive(false);
-    }
-
-    public void BackToinstruction()
-    {
-        round_sc.SetActive(false);
         player_input_sc.SetActive(true);
     }
+
+    //public void BackToinstruction()
+    //{
+    //    round_sc.SetActive(false);
+    //    instruction_sc.SetActive(true);
+    //}
 
     private void ChooseWords()
     {
