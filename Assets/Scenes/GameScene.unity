@@ -3310,6 +3310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4cdab58b2065e242b8c94574ffd5581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text_dataset: {fileID: 4900000, guid: 079cf648b167b61469d8633a43b16530, type: 3}
   timer: {fileID: 1120161479}
   player_input_sc: {fileID: 1801244860}
   instruction_sc: {fileID: 999340613}

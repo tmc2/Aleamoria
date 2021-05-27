@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.IO;
+using System.Linq;
+using System;
 
 public class GameHandler : MonoBehaviour
 {
     // Words dataset
-    TextAsset text_dataset;
+    public TextAsset text_dataset;
 
     // Outsider object scripts
     public Timer timer;
@@ -50,6 +53,16 @@ public class GameHandler : MonoBehaviour
         "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória através de mímica. Cuidado para não emitir nenhum som!",
         "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória através de uma única palavra. É só UMA mesmo, ok?!",
         "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória apenas através de sons inteligíveis. Cuidado para não dar dicas de nenhuma outra forma!"};
+
+    void Start()
+    {
+        string[] linesFromfile = text_dataset.text.Split("\n"[0]);
+        full_dataset = new List<string>();
+        foreach (var line in linesFromfile)
+        {
+            full_dataset.Add(line);
+        }
+    }
 
     public void setPlayers()
     {
@@ -112,6 +125,7 @@ public class GameHandler : MonoBehaviour
         playing_sc.SetActive(false);
         // scramble the words and reset pointer
         //TODO: scramble
+        current_dataset = current_dataset.OrderBy(a => Guid.NewGuid()).ToList();
         current_idx = 0;
         round += 1;
         if(round < 4)
@@ -176,23 +190,27 @@ public class GameHandler : MonoBehaviour
         player_input_sc.SetActive(true);
     }
 
-    //public void BackToinstruction()
-    //{
-    //    round_sc.SetActive(false);
-    //    instruction_sc.SetActive(true);
-    //}
 
     private void ChooseWords()
     {
         // randomly get the apropriate ammount of words from the dataset
-        List<string> temp_list = new System.Collections.Generic.List<string>();
-        temp_list.Add("Pudim1");
-        temp_list.Add("Pudim2");
-        temp_list.Add("Pudim3");
+        current_dataset = new System.Collections.Generic.List<string>();
+        int length = players_num * 3;
+        if (length > full_dataset.Count)
+        {
+            length = full_dataset.Count;
+        }
 
-        // shuffling the entries
-        //Random rng = new Random();
-        //current_dataset = temp_list.OrderBy(a => rng.Next()).ToList();
-        current_dataset = temp_list;
+        List<int>  numbers_list = new List<int>(new int[length]);
+        for (int i = 0; i < length; i++)
+        {
+            int random_pos = UnityEngine.Random.Range(0, full_dataset.Count - 1);
+            while(numbers_list.Contains(random_pos)) // TODO: WARNING! This could lead to livelock if the number of aleamorias to choose is greater than the dataset
+            {
+                random_pos = UnityEngine.Random.Range(0, full_dataset.Count - 1);
+            }
+            numbers_list.Add(random_pos);
+            current_dataset.Add(full_dataset[random_pos]);
+        }
     }
 }
