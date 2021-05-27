@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
         var seconds = timer % 60;
 
         var time_left = countdown - seconds;
-        time_text.text = time_left.ToString("0.0");
+        time_text.text = time_left.ToString("0");
 
         if (time_left <= 0)
         {
@@ -36,6 +36,6 @@ public class Timer : MonoBehaviour
     public void Reset()
     {
         timer = 0.0f;
-        countdown = 5.0f;
+        countdown = 60.0f;
     }
 }

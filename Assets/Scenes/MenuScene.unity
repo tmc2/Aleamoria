@@ -193,6 +193,195 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7966561}
   m_CullTransparentMesh: 0
+--- !u!1 &16795790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 16795791}
+  - component: {fileID: 16795793}
+  - component: {fileID: 16795792}
+  m_Layer: 0
+  m_Name: ExplanationText (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &16795791
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16795790}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1154883043}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 453, y: 0.3}
+  m_SizeDelta: {x: 850.8, y: 939.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &16795792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16795790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "2. Algu\xE9m digita na tela do jogo o n\xFAmero total de jogadores. A quantidade
+    de Aleam\xF3rias da partida vai ser sempre o n\xFAmero de jogadores x3. As Aleam\xF3rias
+    sorteadas aleatoriamente do banco de dados do jogo v\xE3o automaticamente para
+    a urna.\n3. As equipes decidem entre si qual ser\xE1 a equipe vermelha e qual
+    ser\xE1 a equipe amarela. \n4. A equipe vermelha clica em \"come\xE7ar\" e a partir
+    desse momento come\xE7a a rodada: come\xE7a a contagem regressiva e a primeira
+    Aleam\xF3ria aparece na tela (que a esta altura, logicamente, deve estar vis\xEDvel
+    apenas para o l\xEDder da rodada). O l\xEDder da rodada come\xE7a a dar as dicas
+    (de acordo com as regras da fase) e assim que algu\xE9m da equipe adivinhar EXATAMENTE
+    qual \xE9 a Aleam\xF3ria, o l\xEDder da rodada clica em \"acertou\". A Aleam\xF3ria
+    adivinhada vai para a caixinha de descarte, o ponto \xE9 automaticamente computado
+    e j\xE1 aparece a pr\xF3xima Aleam\xF3ria na tela. Isso vai ocorrer repetidamente
+    at\xE9 o 1 minuto acabar. Quando o tempo acabar, a Aleam\xF3ria que estiver na
+    tela (que n\xE3o foi adivinhada) volta automaticamente para a urna. Acabando o
+    tempo, a rodada acaba e \xE9 a vez da equipe amarela.\n5. A equipe amarela clica
+    em \"come\xE7ar\" e o jogo continua da mesma forma. O jogo segue assim (de uma
+    equipe para a outra) at\xE9 que todas as Aleam\xF3rias da urna sejam adivinhadas.
+    \n6. Quando todas as Aleam\xF3rias da urna forem adivinhadas, acaba a Fase 1.
+    As mesmas Aleam\xF3rias, que agora est\xE3o todas na caixinha de descarte, voltam
+    \xE0 urna e come\xE7a a fase 2. A din\xE2mica da Fase 2 e das fases seguintes
+    s\xE3o iguais, cada uma com suas regras de adivinha\xE7\xE3o (vide Fases). As
+    equipes devem estar sempre se alternando nas rodadas (Se a \xFAltima rodada da
+    Fase 1 for da equipe vermelha, a primeira rodada da Fase 2 ser\xE1 da equipe amarela).\n7.
+    Ao final na Fase 4 (\xFAltima fase), a equipe que tiver computado mais pontos
+    \xE9 a vencedora.\n\nFases:\n\nO jogo tem quatro fases. Cada fase estabelece uma
+    forma de dar as dicas para que a equipe adivinhe a Aleam\xF3ria.\nFase 1 - Explica\xE7\xE3o
+    verbal: Nesta fase, o l\xEDder da rodada pode falar a vontade, explicando \xE0
+    sua equipe o que \xE9 a Aleam\xF3ria. Por\xE9m, \xE9 proibido falar as exatas
+    palavras da Aleam\xF3ria ou palavras derivadas. \nFase 2 - M\xEDmica: o l\xEDder
+    da rodada faz uma m\xEDmica para representar a Aleam\xF3ria.\nFase 3 - Uma \xFAnica
+    palavra: o l\xEDder da rodada s\xF3 pode falar uma \xFAnica palavra de dica \xE0
+    sua equipe. \nFase 4 - Sons intelig\xEDveis: o l\xEDder da rodada pode apenas
+    fazer sons intelig\xEDveis (ou onomatop\xE9ias) e ru\xEDdos como dica \xE0 sua
+    equipe."
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 851357588f0e7c34ca5d693a98900e57, type: 2}
+  m_sharedMaterial: {fileID: -3874591090629962948, guid: 851357588f0e7c34ca5d693a98900e57,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 20
+  m_fontSizeBase: 20
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 520
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 16795792}
+    characterCount: 2466
+    spriteCount: 0
+    spaceCount: 451
+    wordCount: 446
+    linkCount: 0
+    lineCount: 38
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &16795793
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16795790}
+  m_CullTransparentMesh: 0
 --- !u!1 &308674443
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,8 +731,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000022888, y: -378.9}
-  m_SizeDelta: {x: 237, y: 248}
+  m_AnchoredPosition: {x: -849, y: 426}
+  m_SizeDelta: {x: 144.5, y: 151.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &585202513
 MonoBehaviour:
@@ -791,6 +980,8 @@ RectTransform:
   m_Children:
   - {fileID: 585202512}
   - {fileID: 1523699650}
+  - {fileID: 16795791}
+  - {fileID: 1661946199}
   m_Father: {fileID: 308674444}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1388,8 +1579,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000014305, y: 0.000024796}
-  m_SizeDelta: {x: 850.8, y: 513.5}
+  m_AnchoredPosition: {x: -445, y: -85.9}
+  m_SizeDelta: {x: 850.8, y: 767.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1523699651
 MonoBehaviour:
@@ -1409,11 +1600,35 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Primeiro voc\xEA pega dois pudins, ent\xE3o junta o pudim 1 com o 2 e come
-    ainda um terceiro enquanto faz o quarto pudim."
+  m_text: "M\xEDnimo de participantes: 4 pessoas (2 equipes de 2 pessoas cada)\n\nO
+    Jogo: Aleam\xF3ria \xE9 um jogo de adivinhar palavras, frases ou express\xF5es
+    loucas e aleat\xF3rias, as chamadas ALEAM\xD3RIAS. Para se dar bem, os participantes
+    devem ter habilidades de express\xE3o e interpreta\xE7\xE3o verbal e corporal,
+    al\xE9m de uma boa mem\xF3ria. No jogo, duas equipes disputam qual acerta mais
+    Aleam\xF3rias no tempo fixo de 1 minuto, rodada ap\xF3s rodada, uma equipe de
+    cada vez. O jogo vai ficando mais dif\xEDcil a cada fase, pois vai ficando cada
+    vez mais limitadas as possibilidades de passar a dica para sua equipe. Por\xE9m,
+    tamb\xE9m vai facilitando, uma vez que as equipes j\xE1 conhecem as Aleam\xF3rias
+    da partida, que n\xE3o mudam de uma fase para a outra. A\xED \xE9 que entra a
+    habilidade da mem\xF3ria.\n\nDicion\xE1rio do Aleam\xF3ria:\n \nAleam\xF3ria:
+    palavra, frase ou express\xE3o a ser adivinhada.\nFase: \xE9 cada uma das 4 (quatro)
+    fases do jogo. Cada fase tem suas pr\xF3prias regras (vide Fases) de como dar
+    a dica da Aleam\xF3ria para sua equipe adivinh\xE1-la. A fase s\xF3 acaba quando
+    todas as Aleam\xF3rias da urna forem adivinhadas. Isso pode levar v\xE1rias rodadas
+    (inclusive mais de uma rodada por equipe).\nRodada: \xE9 o tempo de 1 minuto que
+    a equipe tem para acertar Aleam\xF3rias. Acabou o 1 minuto, acabou a rodada da
+    equipe e \xE9 a vez da rodada da outra equipe, e assim sucessivamente, at\xE9
+    todas as Aleam\xF3rias serem adivinhadas.\nL\xEDder da rodada: \xE9 o jogador
+    que ir\xE1 DAR as dicas das Aleam\xF3rias a cada rodada. Os demais jogadores da
+    equipe ficar\xE3o adivinhando as Aleam\xF3rias de acordo com as dicas do l\xEDder
+    da rodada. O l\xEDder deve seguir as regras de cada fase (vide Fases). O l\xEDder
+    deve mudar a cada rodada, revezando para que todos da equipe possam ser o l\xEDder
+    da rodada.\n\nDin\xE2mica do jogo:\n\n1. Os jogadores dividem-se em duas equipes
+    (preferencialmente com a mesma quantidade de jogadores em cada equipe); "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 851357588f0e7c34ca5d693a98900e57, type: 2}
+  m_sharedMaterial: {fileID: -3874591090629962948, guid: 851357588f0e7c34ca5d693a98900e57,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1438,8 +1653,164 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 20
+  m_fontSizeBase: 20
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 520
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 1523699651}
+    characterCount: 1836
+    spriteCount: 0
+    spaceCount: 325
+    wordCount: 319
+    linkCount: 0
+    lineCount: 31
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1523699652
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523699649}
+  m_CullTransparentMesh: 0
+--- !u!1 &1661946198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1661946199}
+  - component: {fileID: 1661946201}
+  - component: {fileID: 1661946200}
+  m_Layer: 0
+  m_Name: ExplanationText (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1661946199
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661946198}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1154883043}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -392, y: 406.8}
+  m_SizeDelta: {x: 559.6, y: 146.1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1661946200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661946198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: COMO JOGAR
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: de89d8591c89fa343b8c66c9de82e368, type: 2}
+  m_sharedMaterial: {fileID: -1748349225139051131, guid: de89d8591c89fa343b8c66c9de82e368,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 78.6
+  m_fontSizeBase: 78.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1478,13 +1849,13 @@ MonoBehaviour:
   m_pageToDisplay: 1
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
-    textComponent: {fileID: 1523699651}
-    characterCount: 115
+    textComponent: {fileID: 1661946200}
+    characterCount: 10
     spriteCount: 0
-    spaceCount: 22
-    wordCount: 23
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
-    lineCount: 4
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1502,13 +1873,13 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1523699652
+--- !u!222 &1661946201
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1523699649}
+  m_GameObject: {fileID: 1661946198}
   m_CullTransparentMesh: 0
 --- !u!1 &1862703787
 GameObject:

@@ -24,9 +24,10 @@ public class GameHandler : MonoBehaviour
     public TMP_Text warning_text;
 
     // Instruction screen
+    public TMP_Text round_text;
     public TMP_Text instruction_text;
 
-    // Round screen
+    // turn screen
     public TMP_Text Team_text;
 
     // Playing screen
@@ -45,10 +46,10 @@ public class GameHandler : MonoBehaviour
     private bool team1_is_playing = true;
     private int round = 0;
     private List<string> round_explanations = new List<string> { 
-        "Nessa rodada vocês vão tentar fazer seus copanheiros adivinharem a palavra descrevendo ela!",
-        "Nessa rodada... Mímica",
-        "Nessa rodada... Uma palavra",
-        "Nessa rodada... Som"};
+        "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória descrevendo-a verbalmente. Cuidado para não falar palavras contidas na Aleamória!",
+        "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória através de mímica. Cuidado para não emitir nenhum som!",
+        "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória através de uma única palavra. É só UMA mesmo, ok?!",
+        "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória apenas através de sons inteligíveis. Cuidado para não dar dicas de nenhuma outra forma!"};
 
     public void setPlayers()
     {
@@ -63,6 +64,7 @@ public class GameHandler : MonoBehaviour
 
             // change screens
             player_input_sc.SetActive(false);
+            round_text.text = "FASE " + (round + 1).ToString();
             instruction_text.text = round_explanations[round];
             instruction_sc.SetActive(true);
         } else
@@ -115,8 +117,22 @@ public class GameHandler : MonoBehaviour
         if(round < 4)
         {
             // change the instruction text
+            round_text.text = "FASE " + (round + 1).ToString();
             instruction_text.text = round_explanations[round];
 
+            // switch playing team
+            team1_is_playing = !team1_is_playing;
+            // update text
+            if (team1_is_playing)
+            {
+                Team_text.text = "É a vez da Equipe Vermelha!";
+            }
+            else
+            {
+                Team_text.text = "É a vez da Equipe Amarela!";
+            }
+
+            // show new instruction screen
             instruction_sc.SetActive(true);
         } else
         {
