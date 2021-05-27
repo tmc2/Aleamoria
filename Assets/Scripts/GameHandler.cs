@@ -9,6 +9,9 @@ public class GameHandler : MonoBehaviour
     // Words dataset
     TextAsset text_dataset;
 
+    // Outsider object scripts
+    public Timer timer;
+
     // Screens
     public GameObject player_input_sc;
     public GameObject instruction_sc;
@@ -22,6 +25,8 @@ public class GameHandler : MonoBehaviour
 
     // Instruction screen
     public TMP_Text instruction_text;
+
+    // Round screen
     public TMP_Text Team_text;
 
     // Playing screen
@@ -35,10 +40,15 @@ public class GameHandler : MonoBehaviour
     private List<string> full_dataset;
     private List<string> current_dataset;
     private int current_idx = 0;
-    private int round = 1;
     private int team1_score = 0;
     private int team2_score = 0;
     private bool team1_is_playing = true;
+    private int round = 0;
+    private List<string> round_explanations = new List<string> { 
+        "Nessa rodada vocês vão tentar fazer seus copanheiros adivinharem a palavra descrevendo ela!",
+        "Nessa rodada... Mímica",
+        "Nessa rodada... Uma palavra",
+        "Nessa rodada... Som"};
 
     public void setPlayers()
     {
@@ -48,11 +58,12 @@ public class GameHandler : MonoBehaviour
         {
             players_num = parced_num;
 
-            // choose the words for this round
+            // choose the words for this game
             ChooseWords();
 
             // change screens
             player_input_sc.SetActive(false);
+            instruction_text.text = round_explanations[round];
             instruction_sc.SetActive(true);
         } else
         {
@@ -62,17 +73,18 @@ public class GameHandler : MonoBehaviour
 
     public void StartGame()
     {
-        instruction_sc.SetActive(false);
-        GetNextWord();
+        round_sc.SetActive(false);
+        aleamoria_text.text = current_dataset[current_idx];
+        timer.Reset();
         playing_sc.SetActive(true);
     }
 
     public void GetNextWord()
     {
+        current_idx += 1;
         if (current_idx < current_dataset.Count)
         {
             aleamoria_text.text = current_dataset[current_idx];
-            current_idx += 1;
         } else
         {
             PrepareNextRound();
@@ -95,7 +107,40 @@ public class GameHandler : MonoBehaviour
 
     private void PrepareNextRound()
     {
+        playing_sc.SetActive(false);
+        // scramble the words and reset pointer
+        //TODO: scramble
+        current_idx = 0;
+        round += 1;
+        if(round < 4)
+        {
+            // change the instruction text
+            instruction_text.text = round_explanations[round];
 
+            instruction_sc.SetActive(true);
+        } else
+        {
+            // TODO: go to ending screen!!
+            Debug.Log("ACABOU!!");
+        }
+
+    }
+
+    public void EndTurn()
+    {
+        // change team
+        team1_is_playing = !team1_is_playing;
+        // update text
+        if (team1_is_playing)
+        {
+            Team_text.text = "É a vez da Equipe Vermelha!";
+        } else {
+            Team_text.text = "É a vez da Equipe Amarela!";
+        }
+
+        // switch screen
+        playing_sc.SetActive(false);
+        round_sc.SetActive(true);
     }
 
     public void GoToRoundScreen()

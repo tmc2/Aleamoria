@@ -9,13 +9,14 @@ public class Timer : MonoBehaviour
     private float countdown = 0.0f;
 
     public TMP_Text time_text;
+    public GameHandler game_handler;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        timer = 0.0f;
-        countdown = 60.0f;
-    }
+    //// Start is called before the first frame update
+    //void Start()
+    //{
+    //    timer = 0.0f;
+    //    countdown = 60.0f;
+    //}
 
     // Update is called once per frame
     void Update()
@@ -23,6 +24,18 @@ public class Timer : MonoBehaviour
         timer += Time.deltaTime;
         var seconds = timer % 60;
 
-        time_text.text = (countdown - seconds).ToString("0.0");
+        var time_left = countdown - seconds;
+        time_text.text = time_left.ToString("0.0");
+
+        if (time_left <= 0)
+        {
+            game_handler.EndTurn();
+        }
+    }
+
+    public void Reset()
+    {
+        timer = 0.0f;
+        countdown = 5.0f;
     }
 }
