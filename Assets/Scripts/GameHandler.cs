@@ -12,6 +12,7 @@ public class GameHandler : MonoBehaviour
     // Screens
     public GameObject player_input_sc;
     public GameObject instruction_sc;
+    public GameObject round_sc;
     public GameObject playing_sc;
 
 
@@ -97,9 +98,27 @@ public class GameHandler : MonoBehaviour
 
     }
 
+    public void GoToRoundScreen()
+    {
+        instruction_sc.SetActive(false);
+        round_sc.SetActive(true);
+    }
+
     public void BackToMenu()
     {
         SceneManager.LoadScene("MenuScene");
+    }
+
+    public void BackToPlayersNum()
+    {
+        instruction_sc.SetActive(false);
+        round_sc.SetActive(false);
+    }
+
+    public void BackToinstruction()
+    {
+        round_sc.SetActive(false);
+        player_input_sc.SetActive(true);
     }
 
     private void ChooseWords()
