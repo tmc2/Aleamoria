@@ -39,6 +39,7 @@ public class GameHandler : MonoBehaviour
     public TMP_Text team1_score_text;
     public TMP_Text team2_score_text;
     public TMP_Text aleamoria_text;
+    public OkBehavior ok_text;
 
     // Winner screen
     public TMP_Text sentence_text;
@@ -125,6 +126,7 @@ public class GameHandler : MonoBehaviour
 
     public void AddScore()
     {
+        ok_text.Show();
         if (team1_is_playing)
         {
             team1_score += 1;
@@ -139,6 +141,7 @@ public class GameHandler : MonoBehaviour
     private void PrepareNextRound()
     {
         playing_sc.SetActive(false);
+        ok_text.Reset();
         // scramble the words and reset pointer
         //TODO: scramble
         current_dataset = current_dataset.OrderBy(a => Guid.NewGuid()).ToList();
