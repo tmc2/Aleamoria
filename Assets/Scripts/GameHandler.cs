@@ -68,7 +68,7 @@ public class GameHandler : MonoBehaviour
     {
         //Debug.Log(input_field.text);
         int parced_num = int.Parse(input_field.text);
-        if (parced_num > 0)
+        if (parced_num >= 4)
         {
             players_num = parced_num;
 
