@@ -20,6 +20,7 @@ public class GameHandler : MonoBehaviour
     public GameObject instruction_sc;
     public GameObject round_sc;
     public GameObject playing_sc;
+    public GameObject win_sc;
 
 
     // Player input screen 
@@ -39,6 +40,14 @@ public class GameHandler : MonoBehaviour
     public TMP_Text team2_score_text;
     public TMP_Text aleamoria_text;
 
+    // Winner screen
+    public TMP_Text sentence_text;
+    public TMP_Text winner_text;
+    public TMP_Text winner_score;
+    public TMP_Text loser_score;
+    public Canvas team1_canvas;
+    public Canvas team2_canvas;
+
     // private variables
     private int players_num = 0;
     private List<string> full_dataset;
@@ -52,7 +61,14 @@ public class GameHandler : MonoBehaviour
         "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória descrevendo-a verbalmente. Cuidado para não falar palavras contidas na Aleamória!",
         "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória através de mímica. Cuidado para não emitir nenhum som!",
         "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória através de uma única palavra. É só UMA mesmo, ok?!",
-        "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória apenas através de sons inteligíveis. Cuidado para não dar dicas de nenhuma outra forma!"};
+        "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória apenas através de sons vocais não-verbais. Cuidado para não dar dicas de nenhuma outra forma!"};
+    private List<string> round_titles = new List<string>
+    {
+        "FASE 1: DESCRIÇÃO VERBAL",
+        "FASE 2: MÍMICA",
+        "FASE 3: UMA PALAVRA",
+        "FASE 4: SONS"
+    };
 
     void Start()
     {
@@ -68,7 +84,7 @@ public class GameHandler : MonoBehaviour
     {
         //Debug.Log(input_field.text);
         int parced_num = int.Parse(input_field.text);
-        if (parced_num > 0)
+        if (parced_num >= 4)
         {
             players_num = parced_num;
 
@@ -77,7 +93,7 @@ public class GameHandler : MonoBehaviour
 
             // change screens
             player_input_sc.SetActive(false);
-            round_text.text = "FASE " + (round + 1).ToString();
+            round_text.text = round_titles[round];
             instruction_text.text = round_explanations[round];
             instruction_sc.SetActive(true);
         } else
@@ -131,7 +147,7 @@ public class GameHandler : MonoBehaviour
         if(round < 4)
         {
             // change the instruction text
-            round_text.text = "FASE " + (round + 1).ToString();
+            round_text.text = round_titles[round];
             instruction_text.text = round_explanations[round];
 
             // switch playing team
@@ -150,8 +166,30 @@ public class GameHandler : MonoBehaviour
             instruction_sc.SetActive(true);
         } else
         {
-            // TODO: go to ending screen!!
-            Debug.Log("ACABOU!!");
+            win_sc.SetActive(true);
+            if (team1_score == team2_score)
+            {
+                sentence_text.text = "";
+                winner_text.text = "EMPATE";
+                winner_score.text = team1_score.ToString();
+                loser_score.text = team2_score.ToString();
+                team1_canvas.enabled = true;
+                team2_canvas.enabled = true;
+            } else if (team1_score > team2_score)
+            {
+                winner_text.text = "VERMELHA";
+                winner_score.text = team1_score.ToString();
+                loser_score.text = team2_score.ToString();
+                team1_canvas.enabled = true;
+                team2_canvas.enabled = false;
+            } else
+            {
+                winner_text.text = "AMARELA";
+                winner_score.text = team2_score.ToString();
+                loser_score.text = team1_score.ToString();
+                team1_canvas.enabled = false;
+                team2_canvas.enabled = true;
+            }
         }
 
     }
