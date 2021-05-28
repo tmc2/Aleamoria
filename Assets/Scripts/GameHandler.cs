@@ -20,6 +20,9 @@ public class GameHandler : MonoBehaviour
     public GameObject instruction_sc;
     public GameObject round_sc;
     public GameObject playing_sc;
+    public GameObject win_sc;
+
+    public GameObject background;
 
 
     // Player input screen 
@@ -38,6 +41,12 @@ public class GameHandler : MonoBehaviour
     public TMP_Text team1_score_text;
     public TMP_Text team2_score_text;
     public TMP_Text aleamoria_text;
+
+    // Winner screen
+    public TMP_Text winner_score;
+    public TMP_Text loser_score;
+    public Canvas team1_canvas;
+    public Canvas team2_canvas;
 
     // private variables
     private int players_num = 0;
@@ -150,8 +159,21 @@ public class GameHandler : MonoBehaviour
             instruction_sc.SetActive(true);
         } else
         {
-            // TODO: go to ending screen!!
-            Debug.Log("ACABOU!!");
+            background.SetActive(false);
+            win_sc.SetActive(true);
+            if (team1_score > team2_score)
+            {
+                winner_score.text = team1_score.ToString();
+                loser_score.text = team2_score.ToString();
+                team1_canvas.enabled = true;
+                team2_canvas.enabled = false;
+            } else
+            {
+                winner_score.text = team2_score.ToString();
+                loser_score.text = team1_score.ToString();
+                team1_canvas.enabled = false;
+                team2_canvas.enabled = true;
+            }
         }
 
     }
