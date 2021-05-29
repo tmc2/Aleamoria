@@ -5438,6 +5438,7 @@ MonoBehaviour:
   turn_end_sound: {fileID: 2027832501}
   round_end_sound: {fileID: 38352109}
   game_end_sound: {fileID: 1442043352}
+  got_it_sound: {fileID: 303398732}
   text_dataset: {fileID: 4900000, guid: 079cf648b167b61469d8633a43b16530, type: 3}
   timer: {fileID: 1120161479}
   player_input_sc: {fileID: 1801244860}

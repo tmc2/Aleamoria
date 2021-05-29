@@ -13,6 +13,7 @@ public class GameHandler : MonoBehaviour
     public AudioSource turn_end_sound;
     public AudioSource round_end_sound;
     public AudioSource game_end_sound;
+    public AudioSource got_it_sound;
 
     // Words dataset
     public TextAsset text_dataset;
@@ -112,6 +113,7 @@ public class GameHandler : MonoBehaviour
         round_sc.SetActive(false);
         aleamoria_text.text = current_dataset[current_idx];
         timer.Reset();
+        got_it_sound.mute = false; // turn the gotIt sound on again in case it was muted
         playing_sc.SetActive(true);
     }
 
@@ -123,6 +125,7 @@ public class GameHandler : MonoBehaviour
             aleamoria_text.text = current_dataset[current_idx];
         } else
         {
+            got_it_sound.mute = true;
             round_end_sound.Play();
             PrepareNextRound();
         }
@@ -176,6 +179,7 @@ public class GameHandler : MonoBehaviour
         {
             win_sc.SetActive(true);
             // play winners sound
+            got_it_sound.mute = true;
             round_end_sound.Stop();
             game_end_sound.Play();
 
