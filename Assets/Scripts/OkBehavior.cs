@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
+//using TMPro;
 
 public class OkBehavior : MonoBehaviour
 {
     public float showing_time;
-    public TMP_Text ok_text;
+    public Image ok_text;
     //private float timer = 0.0f;
     private float time_left = 0.0f;
 
@@ -20,10 +21,14 @@ public class OkBehavior : MonoBehaviour
 
             time_left -= seconds;
 
-            var ok_color = ok_text.color;
-            float lerp_transparency = 255 * Mathf.Lerp(0, showing_time, time_left);
+            // fade effect during the last 20% of showing time
+            if (time_left <= 0.2 * showing_time)
+            {
+                var ok_color = ok_text.color;
+                float lerp_transparency = Mathf.InverseLerp(0, 0.2f*showing_time, time_left);
 
-            ok_text.color = new Color(ok_color[0], ok_color[1], ok_color[2], lerp_transparency);
+                ok_text.color = new Color(ok_color[0], ok_color[1], ok_color[2], lerp_transparency);
+            }
 
             if (time_left <= 0)
             {
@@ -36,6 +41,9 @@ public class OkBehavior : MonoBehaviour
     {
         ok_text.enabled = true;
         time_left = showing_time;
+        // set transparency back to 1.0f
+        var ok_color = ok_text.color;
+        ok_text.color = new Color(ok_color[0], ok_color[1], ok_color[2], 1.0f);
     }
 
     public void Reset()
