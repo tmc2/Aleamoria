@@ -248,40 +248,37 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "2. Algu\xE9m digita na tela do jogo o n\xFAmero total de jogadores. A quantidade
-    de Aleam\xF3rias da partida vai ser sempre o n\xFAmero de jogadores x3. As Aleam\xF3rias
-    sorteadas aleatoriamente do banco de dados do jogo v\xE3o automaticamente para
-    a urna.\n3. As equipes decidem entre si qual ser\xE1 a equipe vermelha e qual
-    ser\xE1 a equipe amarela. \n4. A equipe vermelha clica em \"come\xE7ar\" e a partir
-    desse momento come\xE7a a rodada: come\xE7a a contagem regressiva e a primeira
-    Aleam\xF3ria aparece na tela (que a esta altura, logicamente, deve estar vis\xEDvel
-    apenas para o l\xEDder da rodada). O l\xEDder da rodada come\xE7a a dar as dicas
-    (de acordo com as regras da fase) e assim que algu\xE9m da equipe adivinhar EXATAMENTE
-    qual \xE9 a Aleam\xF3ria, o l\xEDder da rodada clica em \"acertou\". A Aleam\xF3ria
-    adivinhada vai para a caixinha de descarte, o ponto \xE9 automaticamente computado
-    e j\xE1 aparece a pr\xF3xima Aleam\xF3ria na tela. Isso vai ocorrer repetidamente
-    at\xE9 o 1 minuto acabar. Quando o tempo acabar, a Aleam\xF3ria que estiver na
-    tela (que n\xE3o foi adivinhada) volta automaticamente para a urna. Acabando o
-    tempo, a rodada acaba e \xE9 a vez da equipe amarela.\n5. A equipe amarela clica
-    em \"come\xE7ar\" e o jogo continua da mesma forma. O jogo segue assim (de uma
-    equipe para a outra) at\xE9 que todas as Aleam\xF3rias da urna sejam adivinhadas.
-    \n6. Quando todas as Aleam\xF3rias da urna forem adivinhadas, acaba a Fase 1.
-    As mesmas Aleam\xF3rias, que agora est\xE3o todas na caixinha de descarte, voltam
-    \xE0 urna e come\xE7a a fase 2. A din\xE2mica da Fase 2 e das fases seguintes
-    s\xE3o iguais, cada uma com suas regras de adivinha\xE7\xE3o (vide Fases). As
-    equipes devem estar sempre se alternando nas rodadas (Se a \xFAltima rodada da
-    Fase 1 for da equipe vermelha, a primeira rodada da Fase 2 ser\xE1 da equipe amarela).\n7.
-    Ao final na Fase 4 (\xFAltima fase), a equipe que tiver computado mais pontos
-    \xE9 a vencedora.\n\nFases:\n\nO jogo tem quatro fases. Cada fase estabelece uma
-    forma de dar as dicas para que a equipe adivinhe a Aleam\xF3ria.\nFase 1 - Explica\xE7\xE3o
-    verbal: Nesta fase, o l\xEDder da rodada pode falar a vontade, explicando \xE0
+  m_text: "2. Na tela inicial do jogo, clique no play e ent\xE3o  preencha o n\xFAmero
+    total de jogadores da partida. A quantidade de Aleam\xF3rias vai ser sempre o
+    n\xFAmero de jogadores x3. \n\n3. As equipes decidem entre si qual ser\xE1 a equipe
+    vermelha e qual ser\xE1 a equipe amarela. \n\n4. A equipe vermelha come\xE7a.
+    O l\xEDder da rodada clica em \"jogar\" e se inicia a fase 1. Logo ap\xF3s, vai-se
+    para a tela de in\xEDcio da rodada. O l\xEDder clica em \"iniciar rodada\" e partir
+    desse momento come\xE7a a rodar o tempo e a primeira Aleam\xF3ria aparece na tela.
+    O l\xEDder come\xE7a a dar as dicas - de acordo com as regras da fase - e assim
+    que algu\xE9m da equipe acertar EXATAMENTE qual \xE9 a Aleam\xF3ria, o l\xEDder
+    da rodada clica em \"acertou\". O ponto \xE9 automaticamente computado e j\xE1
+    aparece a pr\xF3xima Aleam\xF3ria na tela. Isso vai ocorrer repetidamente at\xE9
+    o tempo acabar. Se a Aleam\xF3ria que estiver na tela n\xE3o foi acertada quando
+    o tempo acabar, ela voltar\xE1 para a urma automaticamente e voltar\xE1 a aparecer
+    nas rodadas seguintes. As Aleam\xF3rias acertadas, por sua vez, s\xF3 voltam a
+    aparecer na pr\xF3xima fase. Acabando a rodada da equipe vermelha, \xE9 a vez
+    da equipe amarela.\n\n5. A equipe amarela clica em \"iniciar rodada\" e o jogo
+    continua da mesma forma. O jogo segue assim at\xE9 que todas as Aleam\xF3rias
+    da urna sejam acertadas. \n\n6. Quando todas as Aleam\xF3rias da urna forem acertadas,
+    acaba-se a Fase 1. As mesmas Aleam\xF3rias voltam \xE0 urna e inicia-se a fase
+    2. A din\xE2mica da Fase 2 e das fases seguintes s\xE3o iguais, cada uma com suas
+    regras (vide Fases). As equipes devem estar sempre se alternando nas rodadas (Se
+    a \xFAltima rodada da Fase 1 for da equipe vermelha, a primeira rodada da Fase
+    2 ser\xE1 da equipe amarela).\n\n7. Ao final da \xFAltima fase, a equipe que tiver
+    computado mais pontos \xE9 a vencedora.\n\nFases:\n\nFase 1 - Descri\xE7\xE3o
+    verbal: nesta fase, o l\xEDder da rodada pode falar a vontade, explicando \xE0
     sua equipe o que \xE9 a Aleam\xF3ria. Por\xE9m, \xE9 proibido falar as exatas
     palavras da Aleam\xF3ria ou palavras derivadas. \nFase 2 - M\xEDmica: o l\xEDder
-    da rodada faz uma m\xEDmica para representar a Aleam\xF3ria.\nFase 3 - Uma \xFAnica
-    palavra: o l\xEDder da rodada s\xF3 pode falar uma \xFAnica palavra de dica \xE0
-    sua equipe. \nFase 4 - Sons intelig\xEDveis: o l\xEDder da rodada pode apenas
-    fazer sons intelig\xEDveis (ou onomatop\xE9ias) e ru\xEDdos como dica \xE0 sua
-    equipe."
+    da rodada d\xE1 as dicas atrav\xE9s de m\xEDmica. \xC9 proibido emitir qualquer
+    som nesta fase.\nFase 3 - Uma palavra: o l\xEDder da rodada s\xF3 pode falar uma
+    \xFAnica palavra de dica \xE0 sua equipe. \nFase 4 - Sons: o l\xEDder da rodada
+    pode apenas emitir sons vocais n\xE3o-verbais como dica \xE0 sua equipe."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 851357588f0e7c34ca5d693a98900e57, type: 2}
   m_sharedMaterial: {fileID: -3874591090629962948, guid: 851357588f0e7c34ca5d693a98900e57,
@@ -351,10 +348,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 16795792}
-    characterCount: 2466
+    characterCount: 2264
     spriteCount: 0
-    spaceCount: 451
-    wordCount: 446
+    spaceCount: 431
+    wordCount: 419
     linkCount: 0
     lineCount: 38
     pageCount: 1
@@ -1600,31 +1597,27 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "M\xEDnimo de participantes: 4 pessoas (2 equipes de 2 pessoas cada)\n\nO
-    Jogo: Aleam\xF3ria \xE9 um jogo de adivinhar palavras, frases ou express\xF5es
-    loucas e aleat\xF3rias, as chamadas ALEAM\xD3RIAS. Para se dar bem, os participantes
-    devem ter habilidades de express\xE3o e interpreta\xE7\xE3o verbal e corporal,
-    al\xE9m de uma boa mem\xF3ria. No jogo, duas equipes disputam qual acerta mais
-    Aleam\xF3rias no tempo fixo de 1 minuto, rodada ap\xF3s rodada, uma equipe de
-    cada vez. O jogo vai ficando mais dif\xEDcil a cada fase, pois vai ficando cada
-    vez mais limitadas as possibilidades de passar a dica para sua equipe. Por\xE9m,
-    tamb\xE9m vai facilitando, uma vez que as equipes j\xE1 conhecem as Aleam\xF3rias
-    da partida, que n\xE3o mudam de uma fase para a outra. A\xED \xE9 que entra a
-    habilidade da mem\xF3ria.\n\nDicion\xE1rio do Aleam\xF3ria:\n \nAleam\xF3ria:
-    palavra, frase ou express\xE3o a ser adivinhada.\nFase: \xE9 cada uma das 4 (quatro)
-    fases do jogo. Cada fase tem suas pr\xF3prias regras (vide Fases) de como dar
-    a dica da Aleam\xF3ria para sua equipe adivinh\xE1-la. A fase s\xF3 acaba quando
-    todas as Aleam\xF3rias da urna forem adivinhadas. Isso pode levar v\xE1rias rodadas
-    (inclusive mais de uma rodada por equipe).\nRodada: \xE9 o tempo de 1 minuto que
-    a equipe tem para acertar Aleam\xF3rias. Acabou o 1 minuto, acabou a rodada da
-    equipe e \xE9 a vez da rodada da outra equipe, e assim sucessivamente, at\xE9
-    todas as Aleam\xF3rias serem adivinhadas.\nL\xEDder da rodada: \xE9 o jogador
-    que ir\xE1 DAR as dicas das Aleam\xF3rias a cada rodada. Os demais jogadores da
-    equipe ficar\xE3o adivinhando as Aleam\xF3rias de acordo com as dicas do l\xEDder
-    da rodada. O l\xEDder deve seguir as regras de cada fase (vide Fases). O l\xEDder
-    deve mudar a cada rodada, revezando para que todos da equipe possam ser o l\xEDder
-    da rodada.\n\nDin\xE2mica do jogo:\n\n1. Os jogadores dividem-se em duas equipes
-    (preferencialmente com a mesma quantidade de jogadores em cada equipe); "
+  m_text: "M\xEDnimo de jogadores: 4 pessoas (2 equipes de 2 pessoas cada)\n\nO Jogo:
+    Aleam\xF3ria \xE9 um jogo de acertar palavras, frases ou express\xF5es aleat\xF3rias
+    atrav\xE9s de dicas. Para se dar bem, os jogadores devem ter habilidades de express\xE3o
+    e interpreta\xE7\xE3o verbal e corporal, al\xE9m de rapidez e uma boa mem\xF3ria.
+    No jogo, duas equipes disputam qual acerta mais Aleam\xF3rias no tempo fixo de
+    1 minuto, rodada ap\xF3s rodada, uma equipe de cada vez. \n\nDicion\xE1rio do
+    Aleam\xF3ria:\n \n- Aleam\xF3ria: palavra, frase ou express\xE3o a ser acertada.\n-
+    Fase: \xE9 cada uma das 4 fases do jogo. Cada fase tem suas pr\xF3prias regras
+    (vide Fases) de como dar a dica para sua equipe acertar a Aleam\xF3ria. A fase
+    s\xF3 acaba quando todas as Aleam\xF3rias da partida forem adivinhadas. Isso pode
+    levar v\xE1rias rodadas (inclusive mais de uma rodada por equipe).\n- Rodada:
+    \xE9 o tempo de 1 minuto que a equipe tem para acertar Aleam\xF3rias. Acabou o
+    tempo, acabou a rodada da equipe e \xE9 a vez da rodada da outra equipe, e assim
+    sucessivamente, at\xE9 todas as Aleam\xF3rias serem acertadas.\n- L\xEDder da
+    rodada: \xE9 o jogador que ir\xE1 DAR as dicas das Aleam\xF3rias a sua equipe
+    a cada rodada. Os demais jogadores da equipe ficar\xE3o tentando acertar as Aleam\xF3rias
+    de acordo com as dicas do l\xEDder da rodada. O l\xEDder deve seguir as regras
+    de cada fase (vide Fases). O l\xEDder deve mudar a cada rodada, revezando para
+    que todos da equipe possam ser o l\xEDder da rodada.\n\nDin\xE2mica do jogo:\n\n1.
+    Os jogadores dividem-se em duas equipes (preferencialmente com a mesma quantidade
+    de jogadores em cada equipe); "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 851357588f0e7c34ca5d693a98900e57, type: 2}
   m_sharedMaterial: {fileID: -3874591090629962948, guid: 851357588f0e7c34ca5d693a98900e57,
@@ -1694,12 +1687,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1523699651}
-    characterCount: 1836
+    characterCount: 1519
     spriteCount: 0
-    spaceCount: 325
-    wordCount: 319
+    spaceCount: 275
+    wordCount: 268
     linkCount: 0
-    lineCount: 31
+    lineCount: 28
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
