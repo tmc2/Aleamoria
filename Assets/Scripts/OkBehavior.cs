@@ -8,7 +8,6 @@ public class OkBehavior : MonoBehaviour
 {
     public float showing_time;
     public Image ok_text;
-    //private float timer = 0.0f;
     private float time_left = 0.0f;
 
     // Update is called once per frame
@@ -16,10 +15,7 @@ public class OkBehavior : MonoBehaviour
     {
         if (time_left > 0)
         {
-            //timer += Time.deltaTime;
-            var seconds = Time.deltaTime % 60;
-
-            time_left -= seconds;
+            time_left -= Time.deltaTime;
 
             // fade effect during the last 20% of showing time
             if (time_left <= 0.2 * showing_time)

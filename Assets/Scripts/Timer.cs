@@ -16,13 +16,12 @@ public class Timer : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        var seconds = timer % 60;
-
-        var time_left = time_length - seconds;
+        var time_left = time_length - timer;
         time_text.text = time_left.ToString("0");
 
         if (time_left <= 0)
         {
+            Debug.Log("called endturn()");
             game_handler.EndTurn();
         }
     }
@@ -30,6 +29,5 @@ public class Timer : MonoBehaviour
     public void Reset()
     {
         timer = 0.0f;
-        //countdown = 60.0f;
     }
 }

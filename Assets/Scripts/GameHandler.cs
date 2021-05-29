@@ -199,6 +199,7 @@ public class GameHandler : MonoBehaviour
 
     public void EndTurn()
     {
+        Debug.Log("Entered endturn()");
         // change team
         team1_is_playing = !team1_is_playing;
         // update text
@@ -212,6 +213,7 @@ public class GameHandler : MonoBehaviour
         // switch screen
         playing_sc.SetActive(false);
         round_sc.SetActive(true);
+        Debug.Log("switched screens to round screen");
     }
 
     public void GoToRoundScreen()
