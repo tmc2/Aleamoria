@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 112678053}
   - component: {fileID: 112678052}
   m_Layer: 5
-  m_Name: WinnerScore
+  m_Name: Team1Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5458,8 +5458,8 @@ MonoBehaviour:
   ok_text: {fileID: 1400926357}
   sentence_text: {fileID: 28805029}
   winner_text: {fileID: 198226193}
-  winner_score: {fileID: 112678052}
-  loser_score: {fileID: 1582074269}
+  team1_end_score: {fileID: 112678052}
+  team2_end_score: {fileID: 1582074269}
   team1_canvas: {fileID: 1920651085}
   team2_canvas: {fileID: 1422596895}
 --- !u!4 &1545383741
@@ -5488,7 +5488,7 @@ GameObject:
   - component: {fileID: 1582074270}
   - component: {fileID: 1582074269}
   m_Layer: 5
-  m_Name: LoserScore
+  m_Name: Team2Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -50,8 +50,8 @@ public class GameHandler : MonoBehaviour
     // Winner screen
     public TMP_Text sentence_text;
     public TMP_Text winner_text;
-    public TMP_Text winner_score;
-    public TMP_Text loser_score;
+    public TMP_Text team1_end_score;
+    public TMP_Text team2_end_score;
     public Canvas team1_canvas;
     public Canvas team2_canvas;
 
@@ -183,26 +183,22 @@ public class GameHandler : MonoBehaviour
             round_end_sound.Stop();
             game_end_sound.Play();
 
+            team1_end_score.text = team1_score.ToString();
+            team2_end_score.text = team2_score.ToString();
             if (team1_score == team2_score)
             {
                 sentence_text.text = "";
                 winner_text.text = "EMPATE";
-                winner_score.text = team1_score.ToString();
-                loser_score.text = team2_score.ToString();
                 team1_canvas.enabled = true;
                 team2_canvas.enabled = true;
             } else if (team1_score > team2_score)
             {
                 winner_text.text = "VERMELHA";
-                winner_score.text = team1_score.ToString();
-                loser_score.text = team2_score.ToString();
                 team1_canvas.enabled = true;
                 team2_canvas.enabled = false;
             } else
             {
                 winner_text.text = "AMARELA";
-                winner_score.text = team2_score.ToString();
-                loser_score.text = team1_score.ToString();
                 team1_canvas.enabled = false;
                 team2_canvas.enabled = true;
             }
