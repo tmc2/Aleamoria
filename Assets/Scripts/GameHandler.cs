@@ -9,6 +9,12 @@ using System;
 
 public class GameHandler : MonoBehaviour
 {
+    // Sound effects
+    public AudioSource turn_end_sound;
+    public AudioSource round_end_sound;
+    public AudioSource game_end_sound;
+    public AudioSource got_it_sound;
+
     // Words dataset
     public TextAsset text_dataset;
 
@@ -44,8 +50,8 @@ public class GameHandler : MonoBehaviour
     // Winner screen
     public TMP_Text sentence_text;
     public TMP_Text winner_text;
-    public TMP_Text winner_score;
-    public TMP_Text loser_score;
+    public TMP_Text team1_end_score;
+    public TMP_Text team2_end_score;
     public Canvas team1_canvas;
     public Canvas team2_canvas;
 
@@ -83,7 +89,6 @@ public class GameHandler : MonoBehaviour
 
     public void setPlayers()
     {
-        //Debug.Log(input_field.text);
         int parced_num = int.Parse(input_field.text);
         if (parced_num >= 4)
         {
@@ -108,6 +113,7 @@ public class GameHandler : MonoBehaviour
         round_sc.SetActive(false);
         aleamoria_text.text = current_dataset[current_idx];
         timer.Reset();
+        got_it_sound.mute = false; // turn the gotIt sound on again in case it was muted
         playing_sc.SetActive(true);
     }
 
@@ -119,6 +125,8 @@ public class GameHandler : MonoBehaviour
             aleamoria_text.text = current_dataset[current_idx];
         } else
         {
+            got_it_sound.mute = true;
+            round_end_sound.Play();
             PrepareNextRound();
         }
 
@@ -170,26 +178,27 @@ public class GameHandler : MonoBehaviour
         } else
         {
             win_sc.SetActive(true);
+            // play winners sound
+            got_it_sound.mute = true;
+            round_end_sound.Stop();
+            game_end_sound.Play();
+
+            team1_end_score.text = team1_score.ToString();
+            team2_end_score.text = team2_score.ToString();
             if (team1_score == team2_score)
             {
                 sentence_text.text = "";
                 winner_text.text = "EMPATE";
-                winner_score.text = team1_score.ToString();
-                loser_score.text = team2_score.ToString();
                 team1_canvas.enabled = true;
                 team2_canvas.enabled = true;
             } else if (team1_score > team2_score)
             {
                 winner_text.text = "VERMELHA";
-                winner_score.text = team1_score.ToString();
-                loser_score.text = team2_score.ToString();
                 team1_canvas.enabled = true;
                 team2_canvas.enabled = false;
             } else
             {
                 winner_text.text = "AMARELA";
-                winner_score.text = team2_score.ToString();
-                loser_score.text = team1_score.ToString();
                 team1_canvas.enabled = false;
                 team2_canvas.enabled = true;
             }
@@ -199,7 +208,9 @@ public class GameHandler : MonoBehaviour
 
     public void EndTurn()
     {
-        Debug.Log("Entered endturn()");
+        // play sound
+        turn_end_sound.Play();
+
         // change team
         team1_is_playing = !team1_is_playing;
         // update text
@@ -213,7 +224,6 @@ public class GameHandler : MonoBehaviour
         // switch screen
         playing_sc.SetActive(false);
         round_sc.SetActive(true);
-        Debug.Log("switched screens to round screen");
     }
 
     public void GoToRoundScreen()
