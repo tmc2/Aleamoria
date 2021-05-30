@@ -16,6 +16,7 @@
 
 This is a game prototype made by Cláudia Ferraz and Thiago Chaves using Unity.
 The game must be played by a minimum of 4 people using the same PC. (Later versions should allow remote play or that each person have your own screen on a smartphone)
+
 In this game, there should be two teams that competes to see who scores the most. They will try to guess words given to one person at a time, who will send clues by describing it, making a mimic, or even by sound!!!! 
 
 It is a great and fun party game!!
@@ -28,8 +29,8 @@ Also, a built project is available in `\docs` which is the source to github page
 
 ## RoadMap
 ### TODOs
- - [ ] Add sound effects
- - [ ] Make an intro animation
+ - [x] Add sound effects
+ - [x] Make an intro animation
  - [ ] Allow the user to enter the players amount by hitting ENTER
  - [ ] New Feature: Add screens in which each player provides 3 Aleamórias
  - [ ] Make thematic datasets and allow users to choose them
