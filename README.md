@@ -3,7 +3,7 @@
 
   
 
-> [![Made with Unity](https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=flat&logo=unity)](https://unity3d.com) ![release](https://img.shields.io/github/v/release/tmc2/Aleamoria) ![MIT License](https://img.shields.io/github/license/tmc2/Aleamoria ) 
+> [![Made with Unity](https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=flat&logo=unity)](https://unity3d.com) ![release](https://img.shields.io/github/v/tag/tmc2/Aleamoria?label=release) ![MIT License](https://img.shields.io/github/license/tmc2/Aleamoria ) 
 
 
   

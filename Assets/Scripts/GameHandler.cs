@@ -90,7 +90,7 @@ public class GameHandler : MonoBehaviour
     public void setPlayers()
     {
         int parced_num = int.Parse(input_field.text);
-        if (parced_num >= 4)
+        if (parced_num >= 4 && parced_num <= 20)
         {
             players_num = parced_num;
 
