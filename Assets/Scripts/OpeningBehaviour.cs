@@ -51,7 +51,7 @@ public class OpeningBehaviour : MonoBehaviour
 
         // Set the video to play. URL supports local absolute or relative paths.
         // Here, using absolute.
-        videoPlayer.url = "https://drive.google.com/file/d/1XpwNTYb28HvtF2S4OzaGzoRtMmcaS47e";
+        videoPlayer.url = "https://cin.ufpe.br/~tmc2/aleamoria/LogoReniewAleamoria.mp4";
 
         // Skip the first 100 frames.
         //videoPlayer.frame = 100;
