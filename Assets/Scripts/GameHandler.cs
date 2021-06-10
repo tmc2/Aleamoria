@@ -35,7 +35,9 @@ public class GameHandler : MonoBehaviour
 
     // Instruction screen
     public TMP_Text round_text;
+    public TMP_Text round_type_text;
     public TMP_Text instruction_text;
+    public GameObject start_button;
 
     // turn screen
     public TMP_Text Team_text;
@@ -54,6 +56,8 @@ public class GameHandler : MonoBehaviour
     public TMP_Text team2_end_score;
     public Canvas team1_canvas;
     public Canvas team2_canvas;
+    public GameObject play_again_button;
+    public float play_again_delay;
 
     // private variables
     private int players_num = 0;
@@ -71,10 +75,10 @@ public class GameHandler : MonoBehaviour
         "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória apenas através de sons vocais não-verbais. Cuidado para não dar dicas de nenhuma outra forma!"};
     private List<string> round_titles = new List<string>
     {
-        "FASE 1: DESCRIÇÃO VERBAL",
-        "FASE 2: MÍMICA",
-        "FASE 3: UMA PALAVRA",
-        "FASE 4: SONS"
+        "FASE 1", "DESCRIÇÃO VERBAL",
+        "FASE 2", "MÍMICA",
+        "FASE 3", "UMA PALAVRA",
+        "FASE 4", "SONS"
     };
 
     void Start()
@@ -99,7 +103,8 @@ public class GameHandler : MonoBehaviour
 
             // change screens
             player_input_sc.SetActive(false);
-            round_text.text = round_titles[round];
+            round_text.text = round_titles[2*round];
+            round_type_text.text = round_titles[2*round+1];
             instruction_text.text = round_explanations[round];
             instruction_sc.SetActive(true);
         } else
@@ -158,7 +163,8 @@ public class GameHandler : MonoBehaviour
         if(round < 4)
         {
             // change the instruction text
-            round_text.text = round_titles[round];
+            round_text.text = round_titles[2 * round];
+            round_type_text.text = round_titles[2 * round + 1];
             instruction_text.text = round_explanations[round];
 
             // switch playing team
@@ -178,6 +184,7 @@ public class GameHandler : MonoBehaviour
         } else
         {
             win_sc.SetActive(true);
+            Invoke("showPlayAgainButton", play_again_delay); // invokes the method after play_again_delay seconds. I'm using this to show the 'play again' button only after a while so the player doesn't accidentally press it
             // play winners sound
             got_it_sound.mute = true;
             round_end_sound.Stop();
@@ -204,6 +211,11 @@ public class GameHandler : MonoBehaviour
             }
         }
 
+    }
+
+    private void showPlayAgainButton()
+    {
+        play_again_button.SetActive(true);
     }
 
     public void EndTurn()

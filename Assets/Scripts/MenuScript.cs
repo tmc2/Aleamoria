@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour
 {
     static private bool firstLoad = true;
+
     public AudioSource click_sound;
 
     void Start()
