@@ -1968,57 +1968,65 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "M\xEDnimo de jogadores: 4 pessoas \n(2 equipes de 2 pessoas cada)\n\nO
-    Jogo: Aleam\xF3ria \xE9 um jogo de acertar palavras, frases ou express\xF5es aleat\xF3rias
-    atrav\xE9s de dicas. Para se dar bem, os jogadores devem ter habilidades de express\xE3o
-    e interpreta\xE7\xE3o verbal e corporal, al\xE9m de rapidez e uma boa mem\xF3ria.
-    No jogo, duas equipes disputam qual acerta mais Aleam\xF3rias no tempo fixo de
-    1 minuto, rodada ap\xF3s rodada, uma equipe de cada vez. \n\nDicion\xE1rio do
-    Aleam\xF3ria:\n \n- Aleam\xF3ria: palavra, frase ou express\xE3o a ser acertada.\n-
-    Fase: \xE9 cada uma das 4 fases do jogo. Cada fase tem suas pr\xF3prias regras
-    (vide Fases) de como dar a dica para sua equipe acertar a Aleam\xF3ria. A fase
-    s\xF3 acaba quando todas as Aleam\xF3rias da partida forem adivinhadas. Isso pode
-    levar v\xE1rias rodadas (inclusive mais de uma rodada por equipe).\n- Rodada:
-    \xE9 o tempo de 1 minuto que a equipe tem para acertar Aleam\xF3rias. Acabou o
-    tempo, acabou a rodada da equipe e \xE9 a vez da rodada da outra equipe, e assim
-    sucessivamente, at\xE9 todas as Aleam\xF3rias serem acertadas.\n- L\xEDder da
-    rodada: \xE9 o jogador que ir\xE1 DAR as dicas das Aleam\xF3rias a sua equipe
-    a cada rodada. Os demais jogadores da equipe ficar\xE3o tentando acertar as Aleam\xF3rias
-    de acordo com as dicas do l\xEDder da rodada. O l\xEDder deve seguir as regras
-    de cada fase (vide Fases). O l\xEDder deve mudar a cada rodada, revezando para
-    que todos da equipe possam ser o l\xEDder da rodada.\n\nDin\xE2mica do jogo:\n\n1.
-    Os jogadores dividem-se em duas equipes (preferencialmente com a mesma quantidade
-    de jogadores em cada equipe); \n\n2. Na tela inicial do jogo, clique no play e
-    ent\xE3o  preencha o n\xFAmero total de jogadores da partida. A quantidade de
-    Aleam\xF3rias vai ser sempre o n\xFAmero de jogadores x3. \n\n3. As equipes decidem
-    entre si qual ser\xE1 a equipe vermelha e qual ser\xE1 a equipe amarela. \n\n4.
-    A equipe vermelha come\xE7a. O l\xEDder da rodada clica em \"jogar\" e se inicia
-    a fase 1. Logo ap\xF3s, vai-se para a tela de in\xEDcio da rodada. O l\xEDder
-    clica em \"iniciar rodada\" e partir desse momento come\xE7a a rodar o tempo e
-    a primeira Aleam\xF3ria aparece na tela. O l\xEDder come\xE7a a dar as dicas -
-    de acordo com as regras da fase - e assim que algu\xE9m da equipe acertar EXATAMENTE
-    qual \xE9 a Aleam\xF3ria, o l\xEDder da rodada clica em \"acertou\". O ponto \xE9
-    automaticamente computado e j\xE1 aparece a pr\xF3xima Aleam\xF3ria na tela. Isso
-    vai ocorrer repetidamente at\xE9 o tempo acabar. Se a Aleam\xF3ria que estiver
-    na tela n\xE3o foi acertada quando o tempo acabar, ela voltar\xE1 para a urma
-    automaticamente e voltar\xE1 a aparecer nas rodadas seguintes. As Aleam\xF3rias
-    acertadas, por sua vez, s\xF3 voltam a aparecer na pr\xF3xima fase. Acabando a
-    rodada da equipe vermelha, \xE9 a vez da equipe amarela.\n\n5. A equipe amarela
-    clica em \"iniciar rodada\" e o jogo continua da mesma forma. O jogo segue assim
-    at\xE9 que todas as Aleam\xF3rias da urna sejam acertadas. \n\n6. Quando todas
-    as Aleam\xF3rias da urna forem acertadas, acaba-se a Fase 1. As mesmas Aleam\xF3rias
-    voltam \xE0 urna e inicia-se a fase 2. A din\xE2mica da Fase 2 e das fases seguintes
-    s\xE3o iguais, cada uma com suas regras (vide Fases). As equipes devem estar sempre
-    se alternando nas rodadas (Se a \xFAltima rodada da Fase 1 for da equipe vermelha,
-    a primeira rodada da Fase 2 ser\xE1 da equipe amarela).\n\n7. Ao final da \xFAltima
-    fase, a equipe que tiver computado mais pontos \xE9 a vencedora.\n\nFases:\n\nFase
+  m_text: "M\xEDnimo de jogadores: 4 pessoas \n(2 equipes de 2 pessoas cada)\n\nAleam\xF3ria
+    \xE9 um jogo em que duas equipes disputam qual delas acerta mais Aleam\xF3rias.\n\n>>
+    Aleam\xF3rias s\xE3o palavras ou frases aleat\xF3rias (para quem tem boa mem\xF3ria)
+    <<\n\n\nMas acerta como?\n\nNa fase 1, atrav\xE9s de descri\xE7\xE3o verbal;\nNa
+    fase 2, atrav\xE9s de m\xEDmica;\nNa fase 3, atrav\xE9s de apenas uma palavra;\nNa
+    fase 4, atrav\xE9s de sons vocais n\xE3o-verbais.\n\n\nE a mem\xF3ria?\n\nNo in\xEDcio
+    do jogo, as Aleam\xF3rias da partida v\xE3o para uma urna. O n\xFAmero de Aleam\xF3rias
+    da partida \xE9 sempre a quantidade de jogadores x3. A cada fase, as equipes precisam
+    acertar todas as Aleam\xF3rias da urna.\n\nCada fase \xE9 composta por rodadas
+    de 60 segundos para cada equipe acertar o maior n\xFAmero de Aleam\xF3rias poss\xEDvel.
+    Primeiro joga a equipe vermelha, depois a equipe amarela, e assim sucessivamente
+    at\xE9 a urna ser zerada. Isso pode levar v\xE1rias rodadas.\n\nQuando a urna
+    for zerada, a fase acaba. Ent\xE3o, as mesmas Aleam\xF3rias voltam para a urna
+    e inicia-se a pr\xF3xima fase.\n\nA cada fase, a regra para dar as dicas vai ficando
+    mais dif\xEDcil. Por\xE9m, os jogadores j\xE1 v\xE3o saber quais s\xE3o as Aleam\xF3rias
+    da partida! Por isso, memoriz\xE1-las \xE9 um grande trunfo para acertar mais
+    r\xE1pido na pr\xF3xima fase.\n\n\nQuem d\xE1 as dicas?\n\nO l\xEDder da rodada
+    \xE9 o respons\xE1vel por dar as dicas \xE0 sua equipe (seguindo a regra de cada
+    fase). O resto da equipe fica tentando adivinhar a Aleam\xF3ria. Pode chutar quantas
+    vezes quiser. Para o jogo ficar mais din\xE2mico, troque o l\xEDder a cada rodada.\n\n\nDin\xE2mica
+    do jogo:\n\n1. Divida os jogadores em duas equipes (preferencialmente com a mesma
+    quantidade de jogadores em cada equipe). Decidam qual ser\xE1 a equipe vermelha
+    e qual ser\xE1 a equipe amarela;\n\n2. Na tela inicial do jogo, clique no play
+    e ent\xE3o preencha o n\xFAmero total de jogadores da partida. Em seguida, escolha
+    se vai jogar com o banco de Aleam\xF3rias que vem no jogo ou se vai criar suas
+    pr\xF3prias Aleam\xF3rias;\n\n3. Caso queira criar suas pr\xF3prias Aleam\xF3rias,
+    cada um dos jogadores da partida deve preencher os tr\xEAs espa\xE7os com suas
+    Aleam\xF3rias e clicar \"ok\". Cuidado aqui: ningu\xE9m pode ver o que cada jogador
+    escreveu! Quando todos os jogadores tiverem escrito suas Aleam\xF3rias, \xE9 hora
+    de come\xE7ar o jogo! Caso tenha escolhido usar o banco de Aleam\xF3rias, esse
+    preenchimento \xE9 autom\xE1tico e voc\xEA vai direto para o in\xEDcio do jogo.\n\n4.
+    A equipe vermelha come\xE7a. O l\xEDder da rodada clica em \"jogar\" e inicia-se
+    a Fase 1. Logo ap\xF3s, aparece a tela de in\xEDcio da rodada. O l\xEDder clica
+    em \"iniciar rodada\" e a partir desse momento come\xE7a a rodar o tempo (60 segundos
+    em contagem regressiva) e a primeira Aleam\xF3ria aparece na tela. \n\n5. O l\xEDder
+    come\xE7a a dar as dicas - de acordo com a regra da fase - e assim que algu\xE9m
+    da equipe acertar EXATAMENTE qual \xE9 a Aleam\xF3ria, o l\xEDder da rodada clica
+    em \"acertou\". O ponto \xE9 automaticamente computado e j\xE1 aparece a pr\xF3xima
+    Aleam\xF3ria na tela. Isso vai ocorrer repetidamente at\xE9 o tempo acabar.\n\n6.
+    Se a Aleam\xF3ria que estiver na tela n\xE3o tiver sido acertada quando o tempo
+    acabar, ela voltar\xE1 para a urna automaticamente e voltar\xE1 a aparecer nas
+    rodadas seguintes.\n\n7. Acabada a rodada da equipe vermelha, \xE9 a vez da equipe
+    amarela. A equipe amarela clica em \"iniciar rodada\" e o jogo continua da mesma
+    forma. O jogo segue assim at\xE9 que todas as Aleam\xF3rias da urna sejam acertadas.
+    \n\n8. Quando todas as Aleam\xF3rias da urna forem acertadas, acaba-se a Fase
+    1. As mesmas Aleam\xF3rias voltam \xE0 urna e inicia-se a fase 2. \n\n9. A din\xE2mica
+    da Fase 2 e das fases seguintes s\xE3o iguais. As equipes devem estar sempre se
+    alternando nas rodadas (Se a \xFAltima rodada da Fase 1 for da equipe vermelha,
+    a primeira rodada da Fase 2 ser\xE1 da equipe amarela). O jogo ir\xE1 lembrar
+    de quem \xE9 a vez antes de cada rodada.\n\n10. Ao final da \xFAltima fase, a
+    equipe que tiver computado mais pontos \xE9 a vencedora.\n\n\nExplicando as Fases:\n\nFase
     1 - Descri\xE7\xE3o verbal: nesta fase, o l\xEDder da rodada pode falar a vontade,
     explicando \xE0 sua equipe o que \xE9 a Aleam\xF3ria. Por\xE9m, \xE9 proibido
-    falar as exatas palavras da Aleam\xF3ria ou palavras derivadas. \nFase 2 - M\xEDmica:
+    falar as exatas palavras da Aleam\xF3ria ou palavras derivadas. \n\nFase 2 - M\xEDmica:
     o l\xEDder da rodada d\xE1 as dicas atrav\xE9s de m\xEDmica. \xC9 proibido emitir
-    qualquer som nesta fase.\nFase 3 - Uma palavra: o l\xEDder da rodada s\xF3 pode
-    falar uma \xFAnica palavra de dica \xE0 sua equipe. \nFase 4 - Sons: o l\xEDder
-    da rodada pode apenas emitir sons vocais n\xE3o-verbais como dica \xE0 sua equipe."
+    qualquer som nesta fase.\n\nFase 3 - Uma palavra: o l\xEDder da rodada s\xF3 pode
+    falar uma \xFAnica palavra de dica \xE0 sua equipe. \n\nFase 4 - Sons: o l\xEDder
+    da rodada pode apenas emitir sons vocais n\xE3o-verbais como dica \xE0 sua equipe.\n\n\n\xC9
+    isto. Boa divers\xE3o!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 851357588f0e7c34ca5d693a98900e57, type: 2}
   m_sharedMaterial: {fileID: -3874591090629962948, guid: 851357588f0e7c34ca5d693a98900e57,
