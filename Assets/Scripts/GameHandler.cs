@@ -23,19 +23,29 @@ public class GameHandler : MonoBehaviour
 
     // Screens
     public GameObject player_input_sc;
+    public GameObject aleamorias_input_sc;
     public GameObject instruction_sc;
     public GameObject round_sc;
     public GameObject playing_sc;
     public GameObject win_sc;
 
 
-    // Player input screen 
+    // Player quantity input screen 
     public TMP_InputField input_field;
     public TMP_Text warning_text;
 
+    // Player's Aleamorias screen
+    public TMP_Text aleam_player_title;
+    public TMP_InputField aleam_input_field_1;
+    public TMP_InputField aleam_input_field_2;
+    public TMP_InputField aleam_input_field_3;
+    public TMP_Text aleam_warning_text;
+
     // Instruction screen
     public TMP_Text round_text;
+    public TMP_Text round_type_text;
     public TMP_Text instruction_text;
+    public GameObject start_button;
 
     // turn screen
     public TMP_Text Team_text;
@@ -54,6 +64,8 @@ public class GameHandler : MonoBehaviour
     public TMP_Text team2_end_score;
     public Canvas team1_canvas;
     public Canvas team2_canvas;
+    public GameObject play_again_button;
+    public float play_again_delay;
 
     // private variables
     private int players_num = 0;
@@ -71,11 +83,12 @@ public class GameHandler : MonoBehaviour
         "Nessa rodada o líder precisa fazer sua equipe adivinhar a Aleamória apenas através de sons vocais não-verbais. Cuidado para não dar dicas de nenhuma outra forma!"};
     private List<string> round_titles = new List<string>
     {
-        "FASE 1: DESCRIÇÃO VERBAL",
-        "FASE 2: MÍMICA",
-        "FASE 3: UMA PALAVRA",
-        "FASE 4: SONS"
+        "FASE 1", "DESCRIÇÃO VERBAL",
+        "FASE 2", "MÍMICA",
+        "FASE 3", "UMA PALAVRA",
+        "FASE 4", "SONS"
     };
+    private int user_input_turn = 0;
 
     void Start()
     {
@@ -87,24 +100,83 @@ public class GameHandler : MonoBehaviour
         }
     }
 
-    public void setPlayers()
+    public void setPlayers(bool use_dataset)
     {
         int parced_num = int.Parse(input_field.text);
-        if (parced_num >= 4)
+        if (parced_num >= 4 && parced_num <= 20)
         {
             players_num = parced_num;
 
-            // choose the words for this game
-            ChooseWords();
+            if (use_dataset)
+            {
+                // choose the words for this game
+                ChooseWords();
 
-            // change screens
-            player_input_sc.SetActive(false);
-            round_text.text = round_titles[round];
-            instruction_text.text = round_explanations[round];
-            instruction_sc.SetActive(true);
+                // change screens
+                player_input_sc.SetActive(false);
+                ShowRoundScreen();
+            } else
+            {
+                // go to the aleamorias input screen
+                player_input_sc.SetActive(false);
+                // set the title
+                aleam_player_title.text = "JOGADOR 1";
+                // clear inputs
+                aleam_input_field_1.text = "";
+                aleam_input_field_2.text = "";
+                aleam_input_field_3.text = "";
+                // create a new empty list to hold the new Aleamorias
+                current_dataset = new List<string>();
+                // then switch screens
+                aleamorias_input_sc.SetActive(true);
+
+            }
         } else
         {
             warning_text.gameObject.SetActive(true);
+        }
+    }
+
+    private void ShowRoundScreen()
+    {
+        // first, lets shuffle the aleamorias for this round!
+        ShuffleAleamorias();
+        // now, update the screen title and text to the proper round explanation
+        round_text.text = round_titles[2 * round];
+        round_type_text.text = round_titles[2 * round + 1];
+        instruction_text.text = round_explanations[round];
+        // now we are ready to go!
+        instruction_sc.SetActive(true);
+    }
+
+    public void InsertPlayerAleamorias()
+    {
+        if ((aleam_input_field_1.text != "") && (aleam_input_field_2.text != "") && (aleam_input_field_3.text != ""))
+        {
+            current_dataset.Add(aleam_input_field_1.text);
+            current_dataset.Add(aleam_input_field_2.text);
+            current_dataset.Add(aleam_input_field_3.text);
+            // Clear inputs
+            aleam_input_field_1.text = "";
+            aleam_input_field_2.text = "";
+            aleam_input_field_3.text = "";
+            // go to next player
+            user_input_turn += 1;
+            aleam_player_title.text = "JOGADOR " + (user_input_turn+1).ToString();
+            aleam_warning_text.gameObject.SetActive(false);
+        }
+        else
+        {
+            // show message to fill every input field
+            aleam_warning_text.gameObject.SetActive(true); 
+        }
+
+        if (user_input_turn >= players_num)
+        {
+
+            // change the screen e start the game!
+            aleamorias_input_sc.SetActive(false);
+            ShowRoundScreen();
         }
     }
 
@@ -158,7 +230,8 @@ public class GameHandler : MonoBehaviour
         if(round < 4)
         {
             // change the instruction text
-            round_text.text = round_titles[round];
+            round_text.text = round_titles[2 * round];
+            round_type_text.text = round_titles[2 * round + 1];
             instruction_text.text = round_explanations[round];
 
             // switch playing team
@@ -178,6 +251,7 @@ public class GameHandler : MonoBehaviour
         } else
         {
             win_sc.SetActive(true);
+            Invoke("showPlayAgainButton", play_again_delay); // invokes the method after play_again_delay seconds. I'm using this to show the 'play again' button only after a while so the player doesn't accidentally press it
             // play winners sound
             got_it_sound.mute = true;
             round_end_sound.Stop();
@@ -204,6 +278,11 @@ public class GameHandler : MonoBehaviour
             }
         }
 
+    }
+
+    private void showPlayAgainButton()
+    {
+        play_again_button.SetActive(true);
     }
 
     public void EndTurn()
@@ -266,4 +345,17 @@ public class GameHandler : MonoBehaviour
             current_dataset.Add(full_dataset[random_pos]);
         }
     }
+
+    // Function that shuffles the positions in the aleamoria list
+    private void ShuffleAleamorias()
+    {
+        for (int i = 0; i < current_dataset.Count - 1; i++)
+        {
+            int rnd = UnityEngine.Random.Range(i, current_dataset.Count);
+            var tempGO = current_dataset[rnd];
+            current_dataset[rnd] = current_dataset[i];
+            current_dataset[i] = tempGO;
+        }
+    }
+
 }
